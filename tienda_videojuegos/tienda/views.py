@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from django.shortcuts import render, redirect
 from .forms import VideojuegoForm, ConsolaForm, AccesorioForm
 from .models import Videojuego, Consola, Accesorio
@@ -38,15 +36,20 @@ def agregar_accesorio(request):
     return render(request, 'tienda/agregar_accesorio.html', {'form': form})
 
 def buscar(request):
-    if request.method == 'GET':
-        query = request.GET.get('q')
+    query = request.GET.get('q')
+    if query:
         resultados_videojuegos = Videojuego.objects.filter(nombre__icontains=query)
         resultados_consolas = Consola.objects.filter(nombre__icontains=query)
         resultados_accesorios = Accesorio.objects.filter(nombre__icontains=query)
-        return render(request, 'tienda/buscar.html', {
-            'resultados_videojuegos': resultados_videojuegos,
-            'resultados_consolas': resultados_consolas,
-            'resultados_accesorios': resultados_accesorios,
-        })
-    return render(request, 'tienda/buscar.html')
+    else:
+        resultados_videojuegos = []
+        resultados_consolas = []
+        resultados_accesorios = []
+
+    return render(request, 'tienda/buscar.html', {
+        'resultados_videojuegos': resultados_videojuegos,
+        'resultados_consolas': resultados_consolas,
+        'resultados_accesorios': resultados_accesorios,
+    })
+
 # Create your views here.

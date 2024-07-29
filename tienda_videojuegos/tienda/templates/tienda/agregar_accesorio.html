@@ -1,5 +1,12 @@
 {% extends "tienda/base.html"%}
 {% load static %}
 {% block main %}
-...
+
+<h2>Agregar Accesorio</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar</button>
+</form>
+
 {% endblock main %}

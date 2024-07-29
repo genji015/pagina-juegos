@@ -1,5 +1,39 @@
 {% extends "tienda/base.html"%}
 {% load static %}
 {% block main %}
-...
+
+<h2>Buscar</h2>
+    <form method="get" action="{% url 'buscar' %}">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if resultados_videojuegos %}
+        <h3>Videojuegos</h3>
+        <ul>
+            {% for videojuego in resultados_videojuegos %}
+                <li>{{ videojuego.nombre }} - {{ videojuego.precio }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if resultados_consolas %}
+        <h3>Consolas</h3>
+        <ul>
+            {% for consola in resultados_consolas %}
+                <li>{{ consola.nombre }} - {{ consola.precio }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if resultados_accesorios %}
+        <h3>Accesorios</h3>
+        <ul>
+            {% for accesorio in resultados_accesorios %}
+                <li>{{ accesorio.nombre }} - {{ accesorio.precio }}</li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+    
 {% endblock main %}
