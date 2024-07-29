@@ -1,5 +1,8 @@
 # Tienda de Videojuegos
 Esta aplicación web, desarrollada con Django, permite gestionar venta de Accesorios, Juegos y Consolas. Implementa el patrón MVT (Model-View-Template) y está diseñada para ser un sistema básico para agregar, buscar y listar Accesorios, Juegos y Consolas con su precio y caracteristicas.
+## Requisitos
+- Python 3.12.4
+- Django 4.2
 
 ## Instalación
 
@@ -19,6 +22,12 @@ Esta aplicación web, desarrollada con Django, permite gestionar venta de Acceso
     ```bash
     python manage.py migrate
     ```
+### Crea un Superusuario (Opcional)
+Para acceder al panel de administración de Django, crea un superusuario con el siguiente comando:
+```bash
+python manage.py createsuperuser
+```
+Sigue las instrucciones para ingresar el nombre de usuario, correo electrónico y contraseña.
 
 4. Ejecuta el servidor:
     ```bash
