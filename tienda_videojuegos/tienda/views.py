@@ -3,7 +3,7 @@ from .forms import VideojuegoForm, ConsolaForm, AccesorioForm
 from .models import Videojuego, Consola, Accesorio
 
 def index(request):
-    return render(request, 'tienda/index.html')
+    return render(request, 'tienda/base.html')
 
 def agregar_videojuego(request):
     if request.method == 'POST':
